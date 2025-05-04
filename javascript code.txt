@@ -1,0 +1,37 @@
+// JavaScript to handle form submission and timing
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mcqForm = document.getElementById('mcq-form');
+  const freeResponseForm = document.getElementById('free-response-form');
+  const mcqSection = document.getElementById('mcq-section');
+  const breakSection = document.getElementById('break');
+  const freeResponseSection = document.getElementById('free-response');
+
+  // Function to handle multiple-choice question form submission
+  mcqForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('You have completed the multiple-choice questions!');
+    mcqSection.style.display = 'none';
+    breakSection.style.display = 'block'; // Show break section
+  });
+
+  // Function to handle free-response question form submission
+  freeResponseForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('You have completed the free-response questions!');
+    freeResponseSection.style.display = 'none';
+    alert('Exam completed! Well done!');
+  });
+  
+  // Optional: Set up timer for multiple-choice section (60 minutes)
+  setTimeout(() => {
+    mcqSection.style.display = 'none';
+    breakSection.style.display = 'block';
+  }, 60 * 60 * 1000); // 60 minutes for MCQ section
+  
+  // Optional: Set up timer for break (10 minutes)
+  setTimeout(() => {
+    breakSection.style.display = 'none';
+    freeResponseSection.style.display = 'block';
+  }, 70 * 60 * 1000); // 10 minutes for break
+});
